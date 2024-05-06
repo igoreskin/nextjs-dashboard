@@ -39,7 +39,7 @@ export async function fetchLatestInvoices() {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
 
-    console.log('Fetching revenue data...');
+    console.log('Fetching latest invoices data...');
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const data = await sql<LatestInvoiceRaw>`
@@ -66,7 +66,7 @@ export async function fetchCardData() {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
 
-    console.log('Fetching revenue data...');
+    console.log('Fetching card data...');
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     // You can probably combine these into a single SQL query
@@ -111,6 +111,12 @@ export async function fetchFilteredInvoices(
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
+    // Artificially delay a response for demo purposes.
+    // Don't do this in production :)
+
+    console.log('Fetching filtered invoices data...');
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
     const invoices = await sql<InvoicesTable>`
       SELECT
         invoices.id,
